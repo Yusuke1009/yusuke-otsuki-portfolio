@@ -9,8 +9,8 @@
 - Team: デジスマ診療チーム
 - Tags: UI/UX, SaaS, 0→1, リブランディング, 採用
 - Roles: Product Design, Recruitment
-- Thumbnail: /assets/works/digisma/thumb.png
-- Kv: /assets/works/digisma/kv.png
+- Thumbnail: /assets/works/digisma/thumb.webp
+- Kv: /assets/works/digisma/kv.webp
 - Featured: true
 
 ## Links
@@ -38,7 +38,7 @@
 
 ### Images
 
-- /assets/works/digisma/01-onsite.png | 実際に現場へデザイナー2名で何度も訪問。ユーザーの課題発見、プロダクト改善、アプリのダウンロード・利用促進キットの制作改善を進める
+- /assets/works/digisma/01-onsite.webp | 実際に現場へデザイナー2名で何度も訪問。ユーザーの課題発見、プロダクト改善、アプリのダウンロード・利用促進キットの制作改善を進める
 
 ## Phase 02
 
@@ -71,7 +71,7 @@
 - /assets/works/digisma/02-style.webp | 誰もおいていかない、わかりやすくモダンなスタイルを定義
 - /assets/works/digisma/02-ba.webp | スタイルの改善は前提に、事業目標改善も同時に推進。デザインリニューアルを事業 KPI 達成と両立
 - /assets/works/digisma/02-flow.webp | ユーザーフロー単位で再設計　[Cocoda 記事 ↗](https://cocoda.design/yusuke109/p/p8393c890e065)
-- /assets/works/digisma/02-good-design.png | グッドデザイン賞はマーケ観点から獲得意義があると判断、経営層への交渉から獲得までの全クリエイティブ・PJ 進行をリード
+- /assets/works/digisma/02-good-design.webp | グッドデザイン賞はマーケ観点から獲得意義があると判断、経営層への交渉から獲得までの全クリエイティブ・PJ 進行をリード
 
 ## Phase 03
 
@@ -94,5 +94,5 @@
 
 ### Images stack
 
-- /assets/works/digisma/03-takuyaku.png | お薬配送サービス「宅薬便」のサービス検証からブランディングを担当
-- /assets/works/digisma/03-whitejack.png | 従業員の健康を支援するアプリ「WhiteJack」を立ち上げ → PMF
+- /assets/works/digisma/03-takuyaku.webp | お薬配送サービス「宅薬便」のサービス検証からブランディングを担当
+- /assets/works/digisma/03-whitejack.webp | 従業員の健康を支援するアプリ「WhiteJack」を立ち上げ → PMF

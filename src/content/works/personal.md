@@ -9,7 +9,7 @@
 - Team: -
 - Tags: チームプロジェクト, アップサイクル, 子供の成長記録
 - Roles: Personal
-- Thumbnail: /assets/works/personal/thumb.png
+- Thumbnail: /assets/works/personal/thumb.webp
 - Featured: false
 
 ## Overview
@@ -32,15 +32,15 @@
 
 ### Images
 
-- /assets/works/personal/adachi/01.png
-- /assets/works/personal/adachi/02.png
-- /assets/works/personal/adachi/04.png
-- /assets/works/personal/adachi/05.png
-- /assets/works/personal/adachi/06.png
-- /assets/works/personal/adachi/07.png
-- /assets/works/personal/adachi/08.png
-- /assets/works/personal/adachi/09.png
-- /assets/works/personal/adachi/10.png
+- /assets/works/personal/adachi/01.webp
+- /assets/works/personal/adachi/02.webp
+- /assets/works/personal/adachi/04.webp
+- /assets/works/personal/adachi/05.webp
+- /assets/works/personal/adachi/06.webp
+- /assets/works/personal/adachi/07.webp
+- /assets/works/personal/adachi/08.webp
+- /assets/works/personal/adachi/09.webp
+- /assets/works/personal/adachi/10.webp
 
 ## Phase 02
 
@@ -58,4 +58,4 @@
 
 ### Images
 
-- /assets/works/personal/akari/playlist.png | 限定公開プレイリスト「あかりさんの記録」
+- /assets/works/personal/akari/playlist.webp | 限定公開プレイリスト「あかりさんの記録」

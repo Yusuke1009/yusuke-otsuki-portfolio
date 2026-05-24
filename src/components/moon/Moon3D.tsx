@@ -4,6 +4,7 @@ import { EffectComposer } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import styled from 'styled-components';
 import { useScrollProgress } from '../../lib/useScrollProgress';
+import { useIsTouchOnly } from '../../lib/useIsTouchOnly';
 import { LensBlurEffect, LensBlurEffectImpl } from './LensBlurEffect';
 
 interface Moon3DProps {
@@ -22,6 +23,10 @@ interface Moon3DProps {
  * - 暗側: lat/long wire (depth test で球の裏側非表示、edge fresnel フェード)
  */
 export function Moon3D({ sizeFactor = 0.34, anchor = [0.52, 0.28] }: Moon3DProps) {
+  // タッチ専用端末（カーソルホバーが存在しない端末）では
+  // マウス追従が前提の LensBlur が画面中央に貼り付いて変な見た目になるので
+  // 丸ごとレンダーしない (EffectComposer ごと外れる)
+  const isTouchOnly = useIsTouchOnly();
   return (
     <CanvasWrap aria-hidden="true">
       <Canvas
@@ -31,7 +36,7 @@ export function Moon3D({ sizeFactor = 0.34, anchor = [0.52, 0.28] }: Moon3DProps
         style={{ background: 'transparent' }}
       >
         <MoonScene sizeFactor={sizeFactor} anchor={anchor} />
-        <LensBlurLayer anchor={anchor} sizeFactor={sizeFactor} />
+        {!isTouchOnly && <LensBlurLayer anchor={anchor} sizeFactor={sizeFactor} />}
       </Canvas>
     </CanvasWrap>
   );

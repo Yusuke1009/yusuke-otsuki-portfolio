@@ -9,8 +9,8 @@
 - Team: 新規事業 / M3 × VIDAL
 - Tags: MVP, Frontend, メディア, 0→1, グローバル
 - Roles: Product Design, Frontend
-- Thumbnail: /assets/works/manabu/thumb.png
-- Kv: /assets/works/manabu/kv.png
+- Thumbnail: /assets/works/manabu/thumb.webp
+- Kv: /assets/works/manabu/kv.webp
 - Featured: true
 
 ## Links
@@ -41,7 +41,7 @@
 
 ### Images stack
 
-- /assets/works/manabu/02-principles.png | デザイン原則 — 「M3 taste」を前提に、より洗練されたユニバーサルなデザインへ。PROFESSIONAL / TRUST / UNIVERSAL / EDGY の 4 つを軸に
-- /assets/works/manabu/03-typography.png | 医師にとって読みやすい情報密度・フォントを徹底検証し、デザインのバリエーションを作成
-- /assets/works/manabu/04-variations.png | 拡張性を踏まえた上で多数のレイアウトバリエーションを検討
-- /assets/works/manabu/05-layout.png | 学習コンテンツが探しやすく、シンプルだが動きのあるレイアウトへ収束
+- /assets/works/manabu/02-principles.webp | デザイン原則 — 「M3 taste」を前提に、より洗練されたユニバーサルなデザインへ。PROFESSIONAL / TRUST / UNIVERSAL / EDGY の 4 つを軸に
+- /assets/works/manabu/03-typography.webp | 医師にとって読みやすい情報密度・フォントを徹底検証し、デザインのバリエーションを作成
+- /assets/works/manabu/04-variations.webp | 拡張性を踏まえた上で多数のレイアウトバリエーションを検討
+- /assets/works/manabu/05-layout.webp | 学習コンテンツが探しやすく、シンプルだが動きのあるレイアウトへ収束

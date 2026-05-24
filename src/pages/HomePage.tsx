@@ -8,7 +8,7 @@ import { articles, talks } from '../data/writing';
 import { useScrollProgress } from '../lib/useScrollProgress';
 import { theme } from '../styles/theme';
 
-const PORTRAIT = '/assets/images/portrait_otsuki.png';
+const PORTRAIT = '/assets/images/portrait_otsuki.webp';
 
 // '2024年7月' → 202407 のような数値化（新しい方が大きい）
 function parseJpDate(s: string): number {

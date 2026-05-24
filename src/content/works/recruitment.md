@@ -9,7 +9,7 @@
 - Team: デザイングループ
 - Tags: 採用, 戦略, 組織, ブランディング
 - Roles: Recruitment
-- Thumbnail: /assets/works/recruitment/thumb.png
+- Thumbnail: /assets/works/recruitment/thumb.webp
 - Featured: true
 
 ## Links
@@ -39,9 +39,9 @@
 
 ### Images
 
-- /assets/works/recruitment/01-designer-lp.png | デザイナー採用 LP　[サイトを見る ↗](https://jobs.m3.com/designer/)
-- /assets/works/recruitment/01-video-lp.png | 動画チーム採用 LP　[サイトを見る ↗](https://jobs.m3.com/designer/videoTeam/)
-- /assets/works/recruitment/01-novelty.png | 開発に携わったノベルティ一覧。3D プリンターを利用したり、メーカーに直接交渉したりと、工夫とアイディアが詰まっている
+- /assets/works/recruitment/01-designer-lp.webp | デザイナー採用 LP　[サイトを見る ↗](https://jobs.m3.com/designer/)
+- /assets/works/recruitment/01-video-lp.webp | 動画チーム採用 LP　[サイトを見る ↗](https://jobs.m3.com/designer/videoTeam/)
+- /assets/works/recruitment/01-novelty.webp | 開発に携わったノベルティ一覧。3D プリンターを利用したり、メーカーに直接交渉したりと、工夫とアイディアが詰まっている
 
 ### Videos
 
@@ -65,5 +65,5 @@
 
 ### Images
 
-- /assets/works/recruitment/02-engineer-lp.png | エンジニア採用サイト — Eng 採用の PR 支援としてサイト・コピーをディレクション　[サイトを見る ↗](https://jobs.m3.com/engineer/)
-- /assets/works/recruitment/02-m3t.png | M3 Technologies — 事業採用支援としてコーポレートブランディングを伴走　[サイトを見る ↗](https://www.m3t.co.jp/)
+- /assets/works/recruitment/02-engineer-lp.webp | エンジニア採用サイト — Eng 採用の PR 支援としてサイト・コピーをディレクション　[サイトを見る ↗](https://jobs.m3.com/engineer/)
+- /assets/works/recruitment/02-m3t.webp | M3 Technologies — 事業採用支援としてコーポレートブランディングを伴走　[サイトを見る ↗](https://www.m3t.co.jp/)

@@ -9,7 +9,7 @@
 - Team: 各社
 - Tags: インダストリアル, インタラクション, Touchdesigner, スタートアップ
 - Roles: Interaction, Industrial, Frontend, Product Design
-- Thumbnail: /assets/works/pre-m3/thumb.png
+- Thumbnail: /assets/works/pre-m3/thumb.webp
 - Featured: false
 
 ## Overview
@@ -33,10 +33,10 @@
 
 ### Images
 
-- /assets/works/pre-m3/page-11.jpg
-- /assets/works/pre-m3/page-12.jpg
-- /assets/works/pre-m3/page-13.jpg
-- /assets/works/pre-m3/page-14.jpg
+- /assets/works/pre-m3/page-11.webp
+- /assets/works/pre-m3/page-12.webp
+- /assets/works/pre-m3/page-13.webp
+- /assets/works/pre-m3/page-14.webp
 
 ## Phase 02
 
@@ -64,9 +64,9 @@
 
 ### Images
 
-- /assets/works/pre-m3/page-08.jpg
-- /assets/works/pre-m3/page-09.jpg
-- /assets/works/pre-m3/page-10.jpg
+- /assets/works/pre-m3/page-08.webp
+- /assets/works/pre-m3/page-09.webp
+- /assets/works/pre-m3/page-10.webp
 
 ## Phase 03
 
@@ -85,7 +85,7 @@
 
 ### Images
 
-- /assets/works/pre-m3/page-04.jpg
-- /assets/works/pre-m3/page-05.jpg
-- /assets/works/pre-m3/page-06.jpg
-- /assets/works/pre-m3/page-07.jpg
+- /assets/works/pre-m3/page-04.webp
+- /assets/works/pre-m3/page-05.webp
+- /assets/works/pre-m3/page-06.webp
+- /assets/works/pre-m3/page-07.webp

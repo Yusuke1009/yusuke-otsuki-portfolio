@@ -86,15 +86,6 @@ export const talks: Talk[] = [
     tags: ['UXリサーチ', 'フィールドワーク'],
   },
   {
-    id: 'designing-org',
-    title: '自走するチームをつくるためのキックオフ',
-    event: 'CreatorZine Webinar for Designers（グッドパッチ・SmartHR・エムスリー共催）',
-    url: 'https://creatorzine.jp/news/detail/4681',
-    date: '2022年9月',
-    description: 'デザイン組織づくりに悩む実践者向けウェビナー。チームが自走するためのキックオフ設計を解説。',
-    tags: ['組織設計', 'キックオフ'],
-  },
-  {
     id: 'm3-mf-service-design',
     title: 'エムスリー×マネーフォワード 社会を変えるサービスデザイン',
     event: 'エムスリー × マネーフォワード 共催イベント',

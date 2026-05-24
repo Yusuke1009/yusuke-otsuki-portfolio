@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
 
-const PORTRAIT = '/assets/images/portrait_otsuki.png';
+const PORTRAIT = '/assets/images/portrait_otsuki.webp';
 
 export function AboutPage() {
   return (

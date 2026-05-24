@@ -9,8 +9,8 @@
 - Team: デジカルチーム
 - Tags: UI/UX, PdM, 電子カルテ, リブランディング, AI
 - Roles: Product Design, PdM
-- Thumbnail: /assets/works/digikar/thumb.png
-- Kv: /assets/works/digikar/kv.png
+- Thumbnail: /assets/works/digikar/thumb.webp
+- Kv: /assets/works/digikar/kv.webp
 - Featured: true
 
 ## Links
@@ -44,9 +44,9 @@ CS サポート課題改善、リリースノート整備、運用体制の構�
 
 ### Images
 
-- /assets/works/digikar/01-ipad.png | iPad 手書きカルテ — Apple Pencil で書き味と検査画像注釈を両立
-- /assets/works/digikar/01-iphone.png | iPhone アプリ — 受付・カルテ・検査結果グラフを片手で確認
-- /assets/works/digikar/01-process.png | 現場に行くことから始まる開発プロセスの設計
+- /assets/works/digikar/01-ipad.webp | iPad 手書きカルテ — Apple Pencil で書き味と検査画像注釈を両立
+- /assets/works/digikar/01-iphone.webp | iPhone アプリ — 受付・カルテ・検査結果グラフを片手で確認
+- /assets/works/digikar/01-process.webp | 現場に行くことから始まる開発プロセスの設計
 
 ## Phase 02
 
@@ -64,7 +64,7 @@ CS サポート課題改善、リリースノート整備、運用体制の構�
 
 ### Images
 
-- /assets/works/digikar/02-observation.png | 観察を大事にし、文化にしていく。ユーザーが本当に欲しいものを見つけ届けることでプロダクトが成長していく。
+- /assets/works/digikar/02-observation.webp | 観察を大事にし、文化にしていく。ユーザーが本当に欲しいものを見つけ届けることでプロダクトが成長していく。
 
 ## Phase 03
 
@@ -83,9 +83,9 @@ CS サポート課題改善、リリースノート整備、運用体制の構�
 
 ### Images stack
 
-- /assets/works/digikar/03-renewal.png | 電子カルテ本体のリニューアル — 既存ユーザーへの影響を最小限にしつつ、モダンさと使いやすさのバランスを保つ。フロントチームをリードし Angular からの完全脱却も同時に完遂
-- /assets/works/digikar/03-brand.png | リブランディング、LP、WP などの実際に使われるものから改善し、システム化。アジャイルにブランディングしていくことで浸透し使われるブランディングになった
-- /assets/works/digikar/03-bj.png | 手塚との交渉から始まり、企画・デザイン・実装までブラックジャックを生かしたマーケティング、キャンペーンを主導　[BJ WP 企画例 ↗](https://digikar.m3.com/bj)
+- /assets/works/digikar/03-renewal.webp | 電子カルテ本体のリニューアル — 既存ユーザーへの影響を最小限にしつつ、モダンさと使いやすさのバランスを保つ。フロントチームをリードし Angular からの完全脱却も同時に完遂
+- /assets/works/digikar/03-brand.webp | リブランディング、LP、WP などの実際に使われるものから改善し、システム化。アジャイルにブランディングしていくことで浸透し使われるブランディングになった
+- /assets/works/digikar/03-bj.webp | 手塚との交渉から始まり、企画・デザイン・実装までブラックジャックを生かしたマーケティング、キャンペーンを主導　[BJ WP 企画例 ↗](https://digikar.m3.com/bj)
 
 ## Phase 04
 
@@ -103,4 +103,4 @@ CS サポート課題改善、リリースノート整備、運用体制の構�
 
 ### Images
 
-- /assets/works/digikar/04-ai-agent.png | 電子カルテへ AI エージェントの組み込み — 目新しさでなく、現場で本当に使われる AI エージェントにするため、MVP・ヒアリングを繰り返し機能設計
+- /assets/works/digikar/04-ai-agent.webp | 電子カルテへ AI エージェントの組み込み — 目新しさでなく、現場で本当に使われる AI エージェントにするため、MVP・ヒアリングを繰り返し機能設計
