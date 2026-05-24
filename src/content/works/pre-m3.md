@@ -55,12 +55,12 @@
 - 「テクノロジーで耳を拡張しよう」代官山ティーンズクリエイティブ ワークショップ — ASMR 体験の耳デバイス
 - ビジョン構想ワークショップ — 74 個のシーンアイデアを創出
 
-### Links
+### Videos
 
-- [無線機事業の歩み 紹介映像 ▶](https://youtu.be/HZXFpHQEKGQ)
-- [Forest Flow ▶](https://youtu.be/0NaQpvvnPeI)
-- [Forest Notes (Maker Faire 2019) ▶](https://youtu.be/mvdoIu8S74Y)
-- [テクノロジーで耳を拡張しよう ▶](https://youtu.be/NvZbUTLozAY)
+- https://youtu.be/HZXFpHQEKGQ
+- https://youtu.be/0NaQpvvnPeI
+- https://youtu.be/mvdoIu8S74Y
+- https://youtu.be/NvZbUTLozAY
 
 ### Images
 
