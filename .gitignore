@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Playwright MCP working files (auto-generated screenshots, snapshots, console logs)
+.playwright-mcp/
+
+# Stray screenshots in the repo root — keep curated ones under docs/
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp

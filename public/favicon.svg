@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" fill="#0a0a0a"/>
+  <defs>
+    <radialGradient id="moon" cx="38%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#f5d76e"/>
+      <stop offset="60%" stop-color="#efc94c"/>
+      <stop offset="100%" stop-color="#8a6a18"/>
+    </radialGradient>
+    <clipPath id="sphere">
+      <circle cx="32" cy="32" r="22"/>
+    </clipPath>
+  </defs>
+  <circle cx="32" cy="32" r="22" fill="url(#moon)"/>
+  <g clip-path="url(#sphere)" fill="none" stroke="#0a0a0a" stroke-width="0.6" opacity="0.55">
+    <ellipse cx="32" cy="32" rx="22" ry="6"/>
+    <ellipse cx="32" cy="32" rx="22" ry="12"/>
+    <ellipse cx="32" cy="32" rx="22" ry="18"/>
+    <ellipse cx="32" cy="32" rx="6" ry="22"/>
+    <ellipse cx="32" cy="32" rx="12" ry="22"/>
+    <ellipse cx="32" cy="32" rx="18" ry="22"/>
+  </g>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#0a0a0a" stroke-width="0.8"/>
+</svg>
