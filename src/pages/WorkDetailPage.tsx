@@ -543,12 +543,7 @@ const VideoGrid = styled.div<{ $count: number }>`
   display: grid;
   gap: ${theme.spacing['3']};
   margin-top: ${theme.spacing['4']};
-  grid-template-columns: ${(p) =>
-    p.$count >= 3
-      ? 'repeat(3, 1fr)'
-      : p.$count === 2
-        ? '1fr 1fr'
-        : '1fr'};
+  grid-template-columns: ${(p) => (p.$count === 1 ? '1fr' : 'repeat(2, 1fr)')};
 
   @media (max-width: ${theme.breakpoints.md}) {
     grid-template-columns: 1fr;
