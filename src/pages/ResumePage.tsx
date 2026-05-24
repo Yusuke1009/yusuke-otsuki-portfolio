@@ -22,7 +22,7 @@ export function ResumePage() {
           千葉大学大学院デザイン科学修了後、株式会社JVCケンウッド・デザインに入社。展示用アプリケーションのデザイン・開発、大手カーメーカーへ向けたビジョン構想やTouchdesignerの研究開発などを担当。その後、株式会社ピックノートにてUI/UXデザイナー兼フロントエンドエンジニアとしてゼロからのサービス開発に携わる。
           <br />
           <br />
-          2020年10月、エムスリー株式会社に入社。プロダクトデザイナーとしてシェアNo.1クラウド電子カルテ「M3 DigiKar」に参画し、デザイン・PdM・採用を一気通貫で担当。2,000 → 10,000施設の事業成長をリードし、現在は新規プロダクトチームのゼネラルマネージャーとしてAIエージェント開発・Next DigiKar・cloudIC Platform の同時並走を担う。
+          2020年10月、エムスリー株式会社に入社。プロダクトデザイナーとしてシェアNo.1クラウド電子カルテ「M3 DigiKar」に参画し、デザイン・PdM・採用を一気通貫で担当。2,000 → 10,000施設の事業成長をリードし、現在は新規プロダクトチームのゼネラルマネージャーとして AI エージェント開発・Next DigiKar・IC Platform、調剤システム開発、AI 動画自動生成システムの開発等、新規プロダクトの同時並走を担う。
         </Summary>
       </Section>
 
@@ -34,23 +34,23 @@ export function ResumePage() {
         <Strengths>
           <Strength>
             <StrengthIcon>↔</StrengthIcon>
-            <StrengthLabel>事業成長そのものをリード</StrengthLabel>
+            <StrengthLabel>事業成長へコミット</StrengthLabel>
             <StrengthBody>
-              デザイナーという役割にとらわれず、PdM・採用・組織立ち上げ・AI 実装まで、事業成長に必要なことを手段を問わず実行する。
+              デザイナーという役割にとらわれず、PdM・採用・組織立ち上げ・AI 実装まで、事業成長のために必要なことを手段に捉われず実行するのが得意です。
             </StrengthBody>
           </Strength>
           <Strength>
             <StrengthIcon>✦</StrengthIcon>
             <StrengthLabel>領域を横断する巻き込み</StrengthLabel>
             <StrengthBody>
-              デザイン・エンジニアリング・PdM・CS・営業・経営、各領域の現場に入り込み、視点を翻訳して同じテーブルに乗せられる。
+              デザイン・エンジニアリング・PdM・CS・営業・経営、各領域の現場に入り込み、視点を翻訳してプロジェクトを推進しています。
             </StrengthBody>
           </Strength>
           <Strength>
             <StrengthIcon>↗</StrengthIcon>
             <StrengthLabel>不確実を切り拓く主体性</StrengthLabel>
             <StrengthBody>
-              0 → 1 → 10 → 100、どのフェーズでも未知のなかに最初に踏み出す。実践からの学習に勝るものはないと考えている。
+              0 → 1 → 10 → 100、どのフェーズでも未知のなかに最初に踏み出す。実践からの学習に勝るものはないと考えています。
             </StrengthBody>
           </Strength>
         </Strengths>
@@ -68,7 +68,7 @@ export function ResumePage() {
               プロダクトデザインの役割を、事業の意思決定の最前線へ。
             </QuoteLead>
             <QuoteText>
-              ユーザー視点とビジネス視点を同じ言語で結び、デザイナーが「事業を動かす職能」として活きる現場をつくりたい。AI を使い倒し、組織と個人の生産性を再設計する側で、医療と社会の次の形を描いていきたい。
+              ユーザー視点とビジネス視点を同じ言語で結び、デザイナーが「事業を動かす職能」として活きる現場をつくりたい。AI を使い倒し、組織と個人の生産性を再設計する側で、社会の次の形を描いていきたい。
             </QuoteText>
           </QuoteBody>
           <QuoteClose>)</QuoteClose>
@@ -345,6 +345,7 @@ const QuoteBody = styled.div`
 const QuoteLead = styled.div`
   font-family: ${theme.typography.fontSerif};
   font-size: ${theme.typography.size.lg};
+  font-weight: ${theme.typography.weight.bold};
   color: ${theme.colors.text.primary};
   letter-spacing: ${theme.typography.letterSpacing.tight};
   margin-bottom: ${theme.spacing['4']};

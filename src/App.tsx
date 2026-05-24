@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthGate } from './components/auth/AuthGate';
 import { PageLayout } from './components/layout/PageLayout';
 import { HomePage } from './pages/HomePage';
 import { WorkPage } from './pages/WorkPage';
@@ -15,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <AuthGate>
       <Routes>
         <Route path="/" element={<PageLayout><HomePage /></PageLayout>} />
         <Route path="/work" element={<PageLayout><WorkPage /></PageLayout>} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/writing" element={<PageLayout><WritingPage /></PageLayout>} />
         <Route path="/contact" element={<PageLayout><ContactPage /></PageLayout>} />
       </Routes>
+      </AuthGate>
     </BrowserRouter>
   );
 }

@@ -115,6 +115,9 @@ function parsePhase(sectionText: string): ProjectPhase {
   const links = parseLinkLines(
     subSections.find((s) => s.name.toLowerCase() === 'links')?.bodyLines ?? [],
   );
+  const videos = parseBulletLines(
+    subSections.find((s) => s.name.toLowerCase() === 'videos')?.bodyLines ?? [],
+  );
   const imagesSection = subSections.find((s) =>
     /^images(\s|$)/i.test(s.name.trim()),
   );
@@ -143,6 +146,7 @@ function parsePhase(sectionText: string): ProjectPhase {
     images: images.length ? images : undefined,
     imagesLayout,
     video: meta['Video'] || undefined,
+    videos: videos.length ? videos : undefined,
   };
 }
 

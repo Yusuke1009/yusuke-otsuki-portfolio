@@ -1,4 +1,4 @@
-# Before M3
+# Other (Before M3)
 
 > 千葉大学院 → JVC ケンウッド → ピックノート
 

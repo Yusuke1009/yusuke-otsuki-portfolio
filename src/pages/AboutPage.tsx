@@ -15,48 +15,29 @@ export function AboutPage() {
         <Portrait src={PORTRAIT} alt="大月 雄介" />
         <IntroBody>
           <Lead>
-            医療とデジタルの交差点で、プロダクトとチームを同時に動かしています。
+            プロダクト、グラフィック、フロントエンド、PdM——
+            手段を問わず動いて、不確実を真っ先に行動で切り拓く。
           </Lead>
           <Bio>
-            千葉大学大学院デザイン科学修了。メーカーにてUI/UXデザイン、インタラクション設計、ビジョン構想など幅広くデザイン業務に関わったのち、2020年10月にエムスリー入社。プロダクトデザイナーとして電子カルテ「デジカル」、診療支援SaaS「デジスマ診療」を担当し、現在は新規プロダクトチームのマネージャーとして入院患者向けプラットフォーム「cloudIC Platform」の立ち上げを担当しています。
+            千葉大学大学院デザイン科学修了。JVC ケンウッド・デザインでインダストリアルデザイン、UX/UI・インタラクション・ビジョン構想に従事したのち、株式会社ピックノートでスタートアップのゼロから開発に携わる。2020 年エムスリー入社。電子カルテ DigiKar、診療 DX デジスマ、海外医療メディアの立ち上げ等、新規プロダクトをリード。デザイナー採用 9 名——プロダクトと組織を同時に貢献しながら、事業成長をリード。
           </Bio>
         </IntroBody>
       </Intro>
 
       <Body>
         <Section>
+          <SectionTitle>主な領域</SectionTitle>
+          <Text>デザイン全般 / 0→1 / マネジメント</Text>
+        </Section>
+
+        <Section>
           <SectionTitle>仕事のスタイル</SectionTitle>
-          <Text>
-            デザインをビジネスの道具として使う——そのために、ユーザーの声とデータと事業の文脈を繋ぎ合わせることを大切にしています。PdM/POを兼務することで、「作るだけ」ではなく「なぜ作るか」から問い直せるポジションを意識的に選んできました。
-          </Text>
+          <Text>率先してまずやってみる、ユーザー理解 · AI 推進</Text>
         </Section>
 
         <Section>
-          <SectionTitle>大切にしていること</SectionTitle>
-          <Text>
-            広義から狭義までの幅広いデザイン力、領域を横断するコミュニケーション力、そして主体的な行動力——この3つを軸に、ユーザー視点とビジネス視点を持ち合わせ、主体的な課題発見・解決を実践していきたいと考えています。
-          </Text>
-        </Section>
-
-        <Section>
-          <SectionTitle>医療を選んだ理由</SectionTitle>
-          <Text>
-            <Placeholder>（執筆中 — ご自身の言葉で）</Placeholder>
-          </Text>
-        </Section>
-
-        <Section>
-          <SectionTitle>チームについて</SectionTitle>
-          <Text>
-            <Placeholder>（執筆中 — マネジメント観・採用観・チームに対する考え方を）</Placeholder>
-          </Text>
-        </Section>
-
-        <Section>
-          <SectionTitle>余談</SectionTitle>
-          <Text>
-            子育て絶賛奮闘中。趣味は3Dプリンターでの子どものおもちゃ制作。
-          </Text>
+          <SectionTitle>趣味</SectionTitle>
+          <Text>3D プリンター、植物栽培</Text>
         </Section>
       </Body>
     </div>
@@ -147,7 +128,3 @@ const Text = styled.p`
   line-height: ${theme.typography.lineHeight.loose};
 `;
 
-const Placeholder = styled.span`
-  color: ${theme.colors.text.placeholder};
-  font-style: italic;
-`;

@@ -3,7 +3,7 @@
 > 個人プロジェクト・チーム活動
 
 - Number: 06
-- Period: 2023 — 現在
+- Period: -
 - Arc: Side · Open
 - Role: 個人プロジェクト
 - Team: -
@@ -45,11 +45,11 @@
 ## Phase 02
 
 - Label: あかりさんの記録
-- Period: 2024.07 — 継続中
+- Period: 2025.02 — 継続中
 - Headline: 子供の成長を毎週動画編集・記録
 - Video: https://www.youtube.com/watch?v=MJMqvjslGXI&list=PLLTZwZrn9tj1GDHADgN7zCOTRXIBpEX_f&index=35
 
-娘が生まれた日から、毎週その週の出来事を動画にまとめ続けている。Premiere で編集、限定公開のプレイリストにアーカイブ。気付けば 60 本超え。家族のための、もう一つの編集の練習場でもある。
+娘が生まれた日から、毎週その週の出来事を動画にまとめ続けている。気付けば 60 本超え。日頃から何かをアウトプットするのが好きです。
 
 ### Achievements
 

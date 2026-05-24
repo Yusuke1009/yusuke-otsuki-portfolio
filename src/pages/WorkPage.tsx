@@ -7,7 +7,7 @@ export function WorkPage() {
     <Page>
       <Header>
         <Label>Work</Label>
-        <Heading>これまで動かしてきたもの。</Heading>
+        <Heading>これまでの実践。</Heading>
         <Sub>
           M3 でのプロダクトと組織づくり、それ以前のメーカー / スタートアップ時代、
           そして個人プロジェクトまで。

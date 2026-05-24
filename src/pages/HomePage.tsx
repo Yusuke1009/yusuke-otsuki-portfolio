@@ -77,24 +77,25 @@ export function HomePage() {
           <AboutBody>
             <AboutLead>
               プロダクト、グラフィック、フロントエンド、PdM——
+              <br />
               <Em>手段を問わず動いて</Em>、
-              不確実を真っ先に行動で切り拓くタイプ。
+              不確実を真っ先に行動で切り拓く。
             </AboutLead>
             <AboutText>
-              千葉大学大学院デザイン科学修了。JVC ケンウッド・デザインで UX/UI・インタラクション・ビジョン構想に従事したのち、株式会社ピックノートでスタートアップのゼロから開発に携わる。2020 年エムスリー入社。電子カルテ DigiKar、診療 DX デジスマ、入院患者向け cloudIC、デザイナー採用 9 名——プロダクトと組織を同時に動かしながら、事業成長そのものをリードしてきた。
+              千葉大学大学院デザイン科学修了。JVC ケンウッド・デザインでインダストリアルデザイン、UX/UI・インタラクション・ビジョン構想に従事したのち、株式会社ピックノートでスタートアップのゼロから開発に携わる。2020 年エムスリー入社。電子カルテ DigiKar、診療 DX デジスマ、海外医療メディアの立ち上げ等、新規プロダクトをリード。デザイナー採用 9 名——プロダクトと組織を同時に貢献しながら、事業成長をリード。
             </AboutText>
             <AboutGridBottom>
               <AboutMicro>
                 <MicroKey>主な領域</MicroKey>
-                <MicroValue>医療 / SaaS / 0→1 / 組織</MicroValue>
+                <MicroValue>デザイン全般 / 0→1 / マネジメント</MicroValue>
               </AboutMicro>
               <AboutMicro>
                 <MicroKey>仕事のスタイル</MicroKey>
-                <MicroValue>ユーザー理解 · AI 浸透 · 採用</MicroValue>
+                <MicroValue>率先してまずやってみる、ユーザー理解 · AI 推進</MicroValue>
               </AboutMicro>
               <AboutMicro>
                 <MicroKey>趣味</MicroKey>
-                <MicroValue>3D プリンター・華道・茶道</MicroValue>
+                <MicroValue>3D プリンター、植物栽培</MicroValue>
               </AboutMicro>
             </AboutGridBottom>
           </AboutBody>
@@ -303,6 +304,7 @@ const SecCount = styled.div`
   font-size: ${theme.typography.size.xs};
   color: ${theme.colors.text.muted};
   letter-spacing: ${theme.typography.letterSpacing.wide};
+  padding-right: ${theme.spacing['6']};
 `;
 
 const AboutGrid = styled.div`

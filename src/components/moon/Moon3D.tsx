@@ -42,6 +42,7 @@ export function Moon3D({ sizeFactor = 0.34, anchor = [0.52, 0.28] }: Moon3DProps
 function LensBlurLayer({ anchor, sizeFactor }: LensProps) {
   const effectRef = useRef<LensBlurEffectImpl>(null);
   const progress = useScrollProgress();
+  const smoothProgressRef = useRef(0);
   const targetRef = useRef({ x: 0, y: 0 });
   const current1Ref = useRef({ x: 0, y: 0 }); // lens1: 中速
   const current2Ref = useRef({ x: 0, y: 0 }); // lens2: より遅い (trail)
@@ -57,7 +58,7 @@ function LensBlurLayer({ anchor, sizeFactor }: LensProps) {
 
   const startTimeRef = useRef(performance.now());
 
-  useFrame(() => {
+  useFrame((_, dt) => {
     if (!effectRef.current) return;
     // ぬるっと: lens1 lerp 0.05, lens2 lerp 0.025 (より遅い trail)
     current1Ref.current.x += (targetRef.current.x - current1Ref.current.x) * 0.05;
@@ -75,7 +76,10 @@ function LensBlurLayer({ anchor, sizeFactor }: LensProps) {
     effectRef.current.setSphereRadius(sphereRadiusNDC);
     effectRef.current.setLensRadius(sphereRadiusNDC * 0.85);
 
-    const intensity = Math.max(0, 1 - progress / 0.2);
+    // MoonScene と同じ慣性 (lerp rate) で smoothProgress を作って intensity を駆動
+    const lerpRate = 1 - Math.exp(-dt * 6.0);
+    smoothProgressRef.current += (progress - smoothProgressRef.current) * lerpRate;
+    const intensity = Math.max(0, 1 - smoothProgressRef.current / 0.2);
     effectRef.current.setIntensity(intensity);
 
     effectRef.current.setTime((performance.now() - startTimeRef.current) / 1000);
@@ -258,6 +262,12 @@ function MoonScene({ sizeFactor, anchor }: SceneProps) {
   const groupRef = useRef<THREE.Group>(null);
   const progress = useScrollProgress();
   const hoverRef = useRef(0);
+  // ── スクロール慣性 ──
+  // smoothProgress: 実 progress を lerp で追従 (ふわっと)
+  // velocity: smoothProgress の derivative (オーバーシュート用)
+  const smoothProgressRef = useRef(0);
+  const lastSmoothRef = useRef(0);
+  const velocityRef = useRef(0);
   const { viewport, scene } = useThree();
 
   // シーン背景を null に（完全透明）
@@ -353,12 +363,23 @@ function MoonScene({ sizeFactor, anchor }: SceneProps) {
   }, []);
 
   useFrame((state, dt) => {
-    // ── 月相: scroll で 0.92 (slight dark) → 0 (new moon = 全 mesh) ──
-    const eased =
-      progress < 0.5
-        ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-    // Reverse: start 0.92, end 0
+    // ── スクロール慣性 ──
+    // 実 progress (target) を smoothProgress が lerp で追従。やや遅めにして
+    // 慣性 (velocity) が長く残るように
+    const lerpRate = 1 - Math.exp(-dt * 5.25);
+    const prev = smoothProgressRef.current;
+    smoothProgressRef.current += (progress - prev) * lerpRate;
+    const sp = smoothProgressRef.current;
+
+    // velocity: 1秒あたりの smoothProgress 変化量 → さらに rate-lerp で滑らかに
+    // 減衰係数を低くして「勢いが残る」感を強める
+    const instantVel = dt > 0 ? (sp - lastSmoothRef.current) / dt : 0;
+    velocityRef.current += (instantVel - velocityRef.current) * (1 - Math.exp(-dt * 4.25));
+    lastSmoothRef.current = sp;
+    const vel = velocityRef.current;
+
+    // ── 月相: smoothProgress で 0.92 (slight dark) → 0 (new moon = 全 mesh) ──
+    const eased = sp < 0.5 ? 4 * sp * sp * sp : 1 - Math.pow(-2 * sp + 2, 3) / 2;
     const phase = 0.92 - eased * 0.92;
     const angle = phase * Math.PI;
     uniforms.light.value.set(Math.sin(angle), 0, -Math.cos(angle));
@@ -377,28 +398,27 @@ function MoonScene({ sizeFactor, anchor }: SceneProps) {
     const g = groupRef.current;
 
     // viewport は orthographic zoom=1 で screen pixel と等価
-    // ── Position: スクロールで右へドリフト (anchor + scroll offset) ──
-    const scrollDriftX = progress * 0.5; // 0..0.5 NDC (画面右端寄りへ、少し見切れる)
-    const scrollDriftY = progress * 0.05;
+    // ── Position: スクロールで右へドリフト + 速度オーバーシュート (慣性) ──
+    const overshootX = vel * 0.1;
+    const overshootY = -vel * 0.027;
+    const scrollDriftX = sp * 0.5 + overshootX;
+    const scrollDriftY = sp * 0.05 + overshootY;
     g.position.x = (viewport.width / 2) * (anchor[0] + scrollDriftX);
     g.position.y = (viewport.height / 2) * (anchor[1] + scrollDriftY);
 
     // ── Scale: 短辺基準 (半径 = sizeFactor * 短辺 / 2) ──
-    // 初期 1.0x → スクロール 0→0.45 で 0.8x へ滑らかに縮小
     const radius = (Math.min(viewport.width, viewport.height) * sizeFactor) / 2;
-    const t = Math.min(1, progress / 0.45);
-    // ease-in-out cubic
+    const t = Math.min(1, sp / 0.45);
     const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    const sFactor = 1.0 - 0.2 * e;
+    // 慣性で膨張: 中 (最大 +9%)
+    const velPulse = 1 + Math.min(0.09, Math.abs(vel) * 0.05);
+    const sFactor = (1.0 - 0.2 * e) * velPulse;
     g.scale.setScalar(radius * sFactor);
 
-    // ── Rotation (連続自転 + scroll で軸が動く + 縦スクロール連動) ──
-    // Y: 連続 (time * 0.12) + scroll で少し追加回転 (max 0.5 rad)
-    g.rotation.y = uniforms.time.value * 0.12 + progress * 0.5;
-    // X: scroll で軸が揺れる
-    g.rotation.x = -0.18 + Math.sin(progress * Math.PI * 1.5) * 0.45;
-    // Z: scroll で roll
-    g.rotation.z = -0.05 + progress * 0.4;
+    // ── Rotation (連続自転 + smoothProgress + 速度ブースト) ──
+    g.rotation.y = uniforms.time.value * 0.12 + sp * 0.5 + vel * 0.3;
+    g.rotation.x = -0.18 + Math.sin(sp * Math.PI * 1.5) * 0.45 + vel * 0.03;
+    g.rotation.z = -0.05 + sp * 0.4 + vel * 0.07;
   });
 
   return (

@@ -16,6 +16,7 @@ export interface ProjectPhase {
   images?: ProjectImage[];
   imagesLayout?: 'stack' | 'auto';
   video?: string;
+  videos?: string[];
 }
 
 export interface ProjectLink {

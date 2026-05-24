@@ -146,19 +146,6 @@ export function WorkDetailPage() {
                       ))}
                     </PhaseLinks>
                   )}
-                  {phase.video && (() => {
-                    const embed = toYouTubeEmbed(phase.video);
-                    return embed ? (
-                      <VideoFrame>
-                        <iframe
-                          src={embed}
-                          title={phase.label}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
-                      </VideoFrame>
-                    ) : null;
-                  })()}
                   {phase.images && phase.images.length > 0 ? (
                     <ImageGrid
                       $count={phase.images.length}
@@ -185,13 +172,44 @@ export function WorkDetailPage() {
                         );
                       })}
                     </ImageGrid>
-                  ) : (
+                  ) : !phase.video && (!phase.videos || phase.videos.length === 0) ? (
                     <ImagePlaceholder>
                       <ImagePlaceholderInner>
                         <span>{phase.number}</span>
                         <em>画像エリア（追加予定）</em>
                       </ImagePlaceholderInner>
                     </ImagePlaceholder>
+                  ) : null}
+                  {phase.video && (() => {
+                    const embed = toYouTubeEmbed(phase.video);
+                    return embed ? (
+                      <VideoFrame>
+                        <iframe
+                          src={embed}
+                          title={phase.label}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </VideoFrame>
+                    ) : null;
+                  })()}
+                  {phase.videos && phase.videos.length > 0 && (
+                    <VideoGrid $count={phase.videos.length}>
+                      {phase.videos.map((url, i) => {
+                        const embed = toYouTubeEmbed(url);
+                        if (!embed) return null;
+                        return (
+                          <VideoFrame key={i}>
+                            <iframe
+                              src={embed}
+                              title={`${phase.label} video ${i + 1}`}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            />
+                          </VideoFrame>
+                        );
+                      })}
+                    </VideoGrid>
                   )}
                 </PhaseRight>
               </PhaseInner>
@@ -519,6 +537,26 @@ const PhaseLink = styled.a`
   padding-bottom: 2px;
   transition: opacity ${theme.motion.fast} ${theme.motion.ease};
   &:hover { opacity: 0.6; }
+`;
+
+const VideoGrid = styled.div<{ $count: number }>`
+  display: grid;
+  gap: ${theme.spacing['3']};
+  margin-top: ${theme.spacing['4']};
+  grid-template-columns: ${(p) =>
+    p.$count >= 3
+      ? 'repeat(3, 1fr)'
+      : p.$count === 2
+        ? '1fr 1fr'
+        : '1fr'};
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+  }
+
+  > div {
+    margin-bottom: 0;
+  }
 `;
 
 const VideoFrame = styled.div`
