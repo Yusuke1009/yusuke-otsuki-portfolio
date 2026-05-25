@@ -200,7 +200,12 @@ const Page = styled.div`
   padding: ${theme.spacing['8']} 0 ${theme.spacing['16']};
 
   @media print {
+    max-width: none;
+    margin: 0;
     padding: 0;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: ${theme.colors.text.primary};
   }
 `;
 
@@ -209,6 +214,10 @@ const Top = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: ${theme.spacing['16']};
+
+  @media print {
+    margin-bottom: ${theme.spacing['4']};
+  }
 `;
 
 const BlackTag = styled.div`
@@ -240,6 +249,12 @@ const NameLine = styled.div`
 
 const Section = styled.section`
   margin-bottom: ${theme.spacing['16']};
+
+  @media print {
+    margin-bottom: ${theme.spacing['4']};
+    break-inside: auto;
+    page-break-inside: auto;
+  }
 `;
 
 const SectionHead = styled.div`
@@ -247,6 +262,10 @@ const SectionHead = styled.div`
   align-items: baseline;
   gap: ${theme.spacing['3']};
   margin-bottom: ${theme.spacing['8']};
+
+  @media print {
+    margin-bottom: ${theme.spacing['3']};
+  }
 `;
 
 const Marker = styled.span`
@@ -278,6 +297,11 @@ const Strengths = styled.div`
 
   @media (max-width: ${theme.breakpoints.md}) {
     grid-template-columns: 1fr;
+  }
+
+  @media print {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: ${theme.spacing['4']};
   }
 `;
 
@@ -426,6 +450,12 @@ const Role = styled.div`
 const JobCard = styled.div`
   margin-bottom: ${theme.spacing['10']};
   break-inside: avoid;
+
+  @media print {
+    margin-bottom: ${theme.spacing['4']};
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 `;
 
 const JobMain = styled.div`
@@ -469,6 +499,11 @@ const JobDescription = styled.p`
   color: ${theme.colors.text.primary};
   line-height: ${theme.typography.lineHeight.loose};
   margin-bottom: ${theme.spacing['4']};
+
+  @media print {
+    margin-bottom: ${theme.spacing['2']};
+    line-height: 1.5;
+  }
 `;
 
 const BulletList = styled.ul`
@@ -482,6 +517,10 @@ const Bullet = styled.li`
   font-size: ${theme.typography.size.sm};
   color: ${theme.colors.text.secondary};
   line-height: ${theme.typography.lineHeight.loose};
+
+  @media print {
+    line-height: 1.4;
+  }
 `;
 
 const BulletMark = styled.span`
@@ -496,6 +535,11 @@ const SideGrid = styled.div`
 
   @media (max-width: ${theme.breakpoints.md}) {
     grid-template-columns: 1fr;
+  }
+
+  @media print {
+    grid-template-columns: 1fr 1fr !important;
+    gap: ${theme.spacing['6']};
   }
 `;
 

@@ -331,13 +331,17 @@ const AboutBody = styled.div``;
 
 const AboutLead = styled.p`
   font-family: ${theme.typography.fontJP};
-  font-size: ${theme.typography.size.lg};
+  font-size: ${theme.typography.size.xl};
   font-weight: 500;
   color: ${theme.colors.text.primary};
   line-height: 1.55;
   letter-spacing: -0.005em;
   margin-bottom: ${theme.spacing['6']};
-  max-width: 600px;
+  max-width: 680px;
+
+  @media (max-width: ${theme.breakpoints.sm}) {
+    font-size: ${theme.typography.size.lg};
+  }
 `;
 
 const Em = styled.em`

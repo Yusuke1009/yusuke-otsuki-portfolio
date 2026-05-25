@@ -332,10 +332,11 @@ const HeaderKv = styled.div`
 
 const ProductName = styled.div`
   font-family: ${theme.typography.fontJP};
-  font-size: ${theme.typography.size.md};
-  color: ${theme.colors.text.secondary};
-  letter-spacing: ${theme.typography.letterSpacing.normal};
-  margin-bottom: ${theme.spacing['2']};
+  font-size: ${theme.typography.size.xl};
+  font-weight: 500;
+  color: ${theme.colors.text.primary};
+  letter-spacing: ${theme.typography.letterSpacing.tight};
+  margin-bottom: ${theme.spacing['3']};
 `;
 
 const FactsBlock = styled.div`
@@ -481,7 +482,7 @@ const PhaseRight = styled.div`
 const PhaseHeadline = styled.h3`
   font-family: ${theme.typography.fontJP};
   font-size: ${theme.typography.size.xl};
-  font-weight: 500;
+  font-weight: 700;
   color: ${theme.colors.text.primary};
   letter-spacing: -0.01em;
   line-height: ${theme.typography.lineHeight.snug};

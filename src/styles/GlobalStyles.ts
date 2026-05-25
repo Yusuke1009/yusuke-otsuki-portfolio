@@ -80,9 +80,17 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @media print {
-    body {
-      background: ${theme.colors.bg.elevated};
-      font-size: 11pt;
+    /* 背景色・装飾色をそのまま印刷 */
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    html, body {
+      background: ${theme.colors.bg.base};
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     nav, footer, .no-print {
@@ -91,10 +99,27 @@ export const GlobalStyles = createGlobalStyle`
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    /* セクションの途中で改ページしない */
+    section, article {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+      page-break-inside: avoid;
     }
 
     @page {
-      margin: 15mm 20mm;
+      margin: 10mm 12mm;
       size: A4 portrait;
     }
   }
