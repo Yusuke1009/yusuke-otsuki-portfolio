@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { projects, ROLE_FILTERS, type RoleFilter } from '../../data/projects';
+import { getProjects, ROLE_FILTERS, type RoleFilter } from '../../data/projects';
 import { theme } from '../../styles/theme';
 import { pickPreviewSet, useHoverImagePreview } from '../shared/HoverImagePreview';
+import { useLang } from '../../i18n/LangContext';
+import { ui } from '../../i18n/ui';
 
 interface WorksWithSidebarProps {
   sectionNumber?: string;
@@ -18,11 +20,14 @@ export function WorksWithSidebar({
 }: WorksWithSidebarProps) {
   const [filter, setFilter] = useState<FilterValue>('ALL');
   const { containerProps, getRowProps, previewLayer } = useHoverImagePreview();
+  const { lang } = useLang();
+  const t = ui[lang];
+  const projects = useMemo(() => getProjects(lang), [lang]);
 
   const filtered = useMemo(() => {
     if (filter === 'ALL') return projects;
     return projects.filter((p) => p.roles.includes(filter));
-  }, [filter]);
+  }, [filter, projects]);
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { ALL: projects.length };
@@ -30,7 +35,7 @@ export function WorksWithSidebar({
       map[r] = projects.filter((p) => p.roles.includes(r)).length;
     });
     return map;
-  }, []);
+  }, [projects]);
 
   return (
     <Section id="work">
@@ -90,7 +95,7 @@ export function WorksWithSidebar({
 
         <List {...containerProps}>
           {filtered.length === 0 ? (
-            <EmptyMsg>該当するプロジェクトがありません。</EmptyMsg>
+            <EmptyMsg>{t.common.emptyProjects}</EmptyMsg>
           ) : (
             filtered.map((p) => (
               <Row

@@ -1,19 +1,24 @@
 import styled from 'styled-components';
-import { articles, talks } from '../data/writing';
+import { writing } from '../data/writing';
 import { Tag } from '../components/shared/Tag';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 export function WritingPage() {
+  const { lang } = useLang();
+  const t = ui[lang];
+  const { articles, talks } = writing[lang];
   return (
     <div>
       <PageHeader>
         <Label>Writing & Speaking</Label>
-        <Heading>記事・登壇</Heading>
-        <SubHeading>テックブログ・インタビュー・カンファレンス登壇</SubHeading>
+        <Heading>{t.writing.heading}</Heading>
+        <SubHeading>{t.writing.sub}</SubHeading>
       </PageHeader>
 
       <SectionBlock>
-        <SectionLabel>執筆・インタビュー</SectionLabel>
+        <SectionLabel>{t.writing.secArticles}</SectionLabel>
         <Divider />
         <List>
           {articles.map((article) => (
@@ -35,7 +40,7 @@ export function WritingPage() {
       </SectionBlock>
 
       <SectionBlock>
-        <SectionLabel>登壇</SectionLabel>
+        <SectionLabel>{t.writing.secTalks}</SectionLabel>
         <Divider />
         <List>
           {talks.map((talk) => (

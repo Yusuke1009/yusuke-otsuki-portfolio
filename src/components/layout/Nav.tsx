@@ -2,15 +2,19 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { theme } from '../../styles/theme';
-
-const NavLinks = [
-  { label: 'Work', path: '/work' },
-  { label: 'Resume', path: '/resume' },
-];
+import { useLang } from '../../i18n/LangContext';
+import { ui } from '../../i18n/ui';
 
 export function Nav() {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const { lang, toggle } = useLang();
+  const t = ui[lang];
+
+  const NavLinks = [
+    { label: t.nav.work, path: '/work' },
+    { label: t.nav.resume, path: '/resume' },
+  ];
 
   return (
     <>
@@ -21,7 +25,7 @@ export function Nav() {
           </Logo>
           <Links>
             {NavLinks.map(({ label, path }) => {
-              const isWork = label === 'Work';
+              const isWork = path === '/work';
               const active = isWork
                 ? pathname.startsWith('/work')
                 : pathname === path;
@@ -31,12 +35,15 @@ export function Nav() {
                 </NavLink>
               );
             })}
+            <LangToggle type="button" onClick={toggle}>
+              {t.nav.toLang}
+            </LangToggle>
           </Links>
           <Hamburger
             type="button"
             $open={open}
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
+            aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
           >
             <span />
             <span />
@@ -55,6 +62,9 @@ export function Nav() {
               {label}
             </DrawerLink>
           ))}
+          <DrawerLangToggle type="button" onClick={toggle}>
+            {t.nav.toLang}
+          </DrawerLangToggle>
         </DrawerInner>
       </Drawer>
     </>
@@ -133,6 +143,22 @@ const NavLink = styled(Link)<{ $active: boolean }>`
 
   &::before { content: '{ '; }
   &::after { content: ' }'; }
+`;
+
+const LangToggle = styled.button`
+  font-family: ${theme.typography.fontMono};
+  font-size: ${theme.typography.size.xs};
+  letter-spacing: ${theme.typography.letterSpacing.wide};
+  color: ${theme.colors.text.muted};
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: ${theme.colors.text.primary};
+  }
 `;
 
 /* ───────── Hamburger (2本線) ───────── */
@@ -214,5 +240,22 @@ const DrawerLink = styled(Link)`
 
   &:hover {
     opacity: 0.6;
+  }
+`;
+
+const DrawerLangToggle = styled.button`
+  font-family: ${theme.typography.fontMono};
+  font-size: ${theme.typography.size.lg};
+  font-weight: 500;
+  color: ${theme.colors.text.muted};
+  letter-spacing: ${theme.typography.letterSpacing.wide};
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: ${theme.colors.text.primary};
   }
 `;

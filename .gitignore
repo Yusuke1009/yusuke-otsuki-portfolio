@@ -29,3 +29,6 @@ yarn-error.log*
 /*.jpg
 /*.jpeg
 /*.webp
+
+# Local resume PDF (generated, uploaded directly to applications)
+resume-en.pdf

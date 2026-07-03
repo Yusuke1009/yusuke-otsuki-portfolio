@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { theme } from '../../styles/theme';
+import { useLang } from '../../i18n/LangContext';
+import { ui } from '../../i18n/ui';
 
 export function Footer() {
+  const { lang } = useLang();
+  const t = ui[lang];
   return (
     <FooterEl className="no-print">
       <Inner>
-        <span>© 2026 大月 雄介</span>
+        <span>© 2026 {t.footer.name}</span>
         <span>moonoom1009@gmail.com</span>
       </Inner>
     </FooterEl>

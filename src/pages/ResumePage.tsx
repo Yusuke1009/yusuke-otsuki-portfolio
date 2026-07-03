@@ -1,57 +1,56 @@
 import styled from 'styled-components';
-import { jobs, skills, education, publications, contact } from '../data/resume';
+import { resume, contact } from '../data/resume';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 export function ResumePage() {
+  const { lang } = useLang();
+  const t = ui[lang];
+  const { jobs, skills, education, publications } = resume[lang];
   return (
     <Page>
       <Top>
-        <BlackTag>職務経歴書</BlackTag>
+        <BlackTag>{t.resume.docTitle}</BlackTag>
         <TopMeta>
-          <div>2026年5月 現在</div>
-          <NameLine>大月 雄介</NameLine>
+          <div>{t.resume.asOf}</div>
+          <NameLine>{t.resume.name}</NameLine>
         </TopMeta>
       </Top>
 
       <Section>
         <SectionHead>
           <Marker>■</Marker>
-          <SectionTitle>経歴要約</SectionTitle>
+          <SectionTitle>{t.resume.secSummary}</SectionTitle>
         </SectionHead>
         <Summary>
-          千葉大学大学院デザイン科学修了後、株式会社JVCケンウッド・デザインに入社。展示用アプリケーションのデザイン・開発、大手カーメーカーへ向けたビジョン構想やTouchdesignerの研究開発などを担当。その後、株式会社ピックノートにてUI/UXデザイナー兼フロントエンドエンジニアとしてゼロからのサービス開発に携わる。
+          {t.resume.summaryP1}
           <br />
           <br />
-          2020年10月、エムスリー株式会社に入社。プロダクトデザイナーとしてシェアNo.1クラウド電子カルテ「M3 DigiKar」に参画し、デザイン・PdM・採用を一気通貫で担当。2,000 → 10,000施設の事業成長をリードし、現在は新規プロダクトチームのゼネラルマネージャーとして AI エージェント開発・Next DigiKar・IC Platform、調剤システム開発、AI 動画自動生成システムの開発等、新規プロダクトの同時並走を担う。
+          {t.resume.summaryP2}
         </Summary>
       </Section>
 
       <Section>
         <SectionHead>
           <Marker>◇</Marker>
-          <SectionTitle>活かせる経験・能力</SectionTitle>
+          <SectionTitle>{t.resume.secStrengths}</SectionTitle>
         </SectionHead>
         <Strengths>
           <Strength>
             <StrengthIcon>↔</StrengthIcon>
-            <StrengthLabel>事業成長へコミット</StrengthLabel>
-            <StrengthBody>
-              デザイナーという役割にとらわれず、PdM・採用・組織立ち上げ・AI 実装まで、事業成長のために必要なことを手段に捉われず実行するのが得意です。
-            </StrengthBody>
+            <StrengthLabel>{t.resume.str1Label}</StrengthLabel>
+            <StrengthBody>{t.resume.str1Body}</StrengthBody>
           </Strength>
           <Strength>
             <StrengthIcon>✦</StrengthIcon>
-            <StrengthLabel>領域を横断する巻き込み</StrengthLabel>
-            <StrengthBody>
-              デザイン・エンジニアリング・PdM・CS・営業・経営、各領域の現場に入り込み、視点を翻訳してプロジェクトを推進しています。
-            </StrengthBody>
+            <StrengthLabel>{t.resume.str2Label}</StrengthLabel>
+            <StrengthBody>{t.resume.str2Body}</StrengthBody>
           </Strength>
           <Strength>
             <StrengthIcon>↗</StrengthIcon>
-            <StrengthLabel>不確実を切り拓く主体性</StrengthLabel>
-            <StrengthBody>
-              0 → 1 → 10 → 100、どのフェーズでも未知のなかに最初に踏み出す。実践からの学習に勝るものはないと考えています。
-            </StrengthBody>
+            <StrengthLabel>{t.resume.str3Label}</StrengthLabel>
+            <StrengthBody>{t.resume.str3Body}</StrengthBody>
           </Strength>
         </Strengths>
       </Section>
@@ -59,17 +58,13 @@ export function ResumePage() {
       <Section>
         <SectionHead>
           <Marker>◉</Marker>
-          <SectionTitle>今後のビジョン</SectionTitle>
+          <SectionTitle>{t.resume.secVision}</SectionTitle>
         </SectionHead>
         <QuoteBlock>
           <QuoteOpen>(</QuoteOpen>
           <QuoteBody>
-            <QuoteLead>
-              プロダクトデザインの役割を、事業の意思決定の最前線へ。
-            </QuoteLead>
-            <QuoteText>
-              ユーザー視点とビジネス視点を同じ言語で結び、デザイナーが「事業を動かす職能」として活きる現場をつくりたい。AI を使い倒し、組織と個人の生産性を再設計する側で、社会の次の形を描いていきたい。
-            </QuoteText>
+            <QuoteLead>{t.resume.visionLead}</QuoteLead>
+            <QuoteText>{t.resume.visionText}</QuoteText>
           </QuoteBody>
           <QuoteClose>)</QuoteClose>
         </QuoteBlock>
@@ -78,7 +73,7 @@ export function ResumePage() {
       <Section>
         <SectionHead>
           <Marker>✎</Marker>
-          <SectionTitle>職務経歴 概要</SectionTitle>
+          <SectionTitle>{t.resume.secCareerOverview}</SectionTitle>
         </SectionHead>
         <OverviewTable>
           {jobs.map((j) => (
@@ -95,7 +90,7 @@ export function ResumePage() {
       <Section>
         <SectionHead>
           <Marker>✪</Marker>
-          <SectionTitle>職務経歴 詳細</SectionTitle>
+          <SectionTitle>{t.resume.secCareerDetail}</SectionTitle>
         </SectionHead>
 
         {jobs.map((job) => (
@@ -105,7 +100,7 @@ export function ResumePage() {
               <JobBody>
                 <JobCompany>{job.company}</JobCompany>
                 <JobRole>{job.role}</JobRole>
-                <JobPeriod>在籍期間：{job.period}</JobPeriod>
+                <JobPeriod>{t.resume.periodLabel}{job.period}</JobPeriod>
                 <JobDescription>{job.description}</JobDescription>
                 {job.achievements.length > 0 && (
                   <BulletList>
@@ -127,7 +122,7 @@ export function ResumePage() {
         <Section>
           <SectionHead>
             <Marker>◧</Marker>
-            <SectionTitle>スキル</SectionTitle>
+            <SectionTitle>{t.resume.secSkills}</SectionTitle>
           </SectionHead>
           {skills.map((g) => (
             <SkillGroup key={g.category}>
@@ -140,7 +135,7 @@ export function ResumePage() {
         <Section>
           <SectionHead>
             <Marker>◍</Marker>
-            <SectionTitle>学歴・言語</SectionTitle>
+            <SectionTitle>{t.resume.secEdu}</SectionTitle>
           </SectionHead>
           {education.map((e) => (
             <SkillGroup key={e.school}>
@@ -151,15 +146,15 @@ export function ResumePage() {
             </SkillGroup>
           ))}
           <SkillGroup>
-            <SkillCategory>言語</SkillCategory>
-            <SkillList>日本語（母国語） / 英語（読み書き）</SkillList>
+            <SkillCategory>{t.resume.langLabel}</SkillCategory>
+            <SkillList>{t.resume.langValue}</SkillList>
           </SkillGroup>
           <SkillGroup>
-            <SkillCategory>連絡先</SkillCategory>
+            <SkillCategory>{t.resume.contactLabel}</SkillCategory>
             <SkillList>
               {contact.email}
               <br />
-              {contact.location}
+              {t.contact.location}
             </SkillList>
           </SkillGroup>
         </Section>
@@ -169,7 +164,7 @@ export function ResumePage() {
         <Section>
           <SectionHead>
             <Marker>✦</Marker>
-            <SectionTitle>発信・執筆・登壇</SectionTitle>
+            <SectionTitle>{t.resume.secPub}</SectionTitle>
           </SectionHead>
           <PubList>
             {publications.map((p) => (
@@ -187,9 +182,7 @@ export function ResumePage() {
         </Section>
       )}
 
-      <PrintNote className="no-print">
-        Cmd+P（Mac） / Ctrl+P（Windows）で PDF として保存できます。
-      </PrintNote>
+      <PrintNote className="no-print">{t.resume.printNote}</PrintNote>
     </Page>
   );
 }

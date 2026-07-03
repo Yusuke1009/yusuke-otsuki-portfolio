@@ -9,6 +9,7 @@ import { ResumePage } from './pages/ResumePage';
 import { WritingPage } from './pages/WritingPage';
 import { ContactPage } from './pages/ContactPage';
 import { ScrollToTop } from './lib/ScrollToTop';
+import { LangProvider } from './i18n/LangContext';
 // import { useLenis } from './lib/useLenis';
 
 function App() {
@@ -16,17 +17,19 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <AuthGate>
-      <Routes>
-        <Route path="/" element={<PageLayout><HomePage /></PageLayout>} />
-        <Route path="/work" element={<PageLayout><WorkPage /></PageLayout>} />
-        <Route path="/work/:id" element={<PageLayout><WorkDetailPage /></PageLayout>} />
-        <Route path="/about" element={<PageLayout><AboutPage /></PageLayout>} />
-        <Route path="/resume" element={<PageLayout><ResumePage /></PageLayout>} />
-        <Route path="/writing" element={<PageLayout><WritingPage /></PageLayout>} />
-        <Route path="/contact" element={<PageLayout><ContactPage /></PageLayout>} />
-      </Routes>
-      </AuthGate>
+      <LangProvider>
+        <AuthGate>
+        <Routes>
+          <Route path="/" element={<PageLayout><HomePage /></PageLayout>} />
+          <Route path="/work" element={<PageLayout><WorkPage /></PageLayout>} />
+          <Route path="/work/:id" element={<PageLayout><WorkDetailPage /></PageLayout>} />
+          <Route path="/about" element={<PageLayout><AboutPage /></PageLayout>} />
+          <Route path="/resume" element={<PageLayout><ResumePage /></PageLayout>} />
+          <Route path="/writing" element={<PageLayout><WritingPage /></PageLayout>} />
+          <Route path="/contact" element={<PageLayout><ContactPage /></PageLayout>} />
+        </Routes>
+        </AuthGate>
+      </LangProvider>
     </BrowserRouter>
   );
 }

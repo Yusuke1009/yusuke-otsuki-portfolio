@@ -4,30 +4,45 @@ import { Link } from 'react-router-dom';
 import { Moon3D } from '../components/moon/Moon3D';
 import { HeroGrid } from '../components/hero/HeroGrid';
 import { WorksWithSidebar } from '../components/work/WorksWithSidebar';
-import { articles, talks } from '../data/writing';
+import { writing } from '../data/writing';
 import { useScrollProgress } from '../lib/useScrollProgress';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 const PORTRAIT = '/assets/images/portrait_otsuki.webp';
 
-// '2024年7月' → 202407 のような数値化（新しい方が大きい）
-function parseJpDate(s: string): number {
-  const m = s.match(/(\d{4})年(\d{1,2})月/);
-  if (!m) return 0;
-  return parseInt(m[1], 10) * 100 + parseInt(m[2], 10);
+const EN_MONTHS: Record<string, number> = {
+  jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
+  jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
+};
+
+// '2024年7月' or 'Jul 2024' → 202407 のような数値化（新しい方が大きい）
+function parseDate(s: string): number {
+  const jp = s.match(/(\d{4})年(\d{1,2})月/);
+  if (jp) return parseInt(jp[1], 10) * 100 + parseInt(jp[2], 10);
+  const en = s.match(/([A-Za-z]{3,})\s+(\d{4})/);
+  if (en) {
+    const month = EN_MONTHS[en[1].slice(0, 3).toLowerCase()];
+    if (month) return parseInt(en[2], 10) * 100 + month;
+  }
+  return 0;
 }
 
 export function HomePage() {
   const progress = useScrollProgress();
   const inverted = progress > 0.92;
+  const { lang } = useLang();
+  const t = ui[lang];
+  const { articles, talks } = writing[lang];
 
   const sortedArticles = useMemo(
-    () => [...articles].sort((a, b) => parseJpDate(b.date) - parseJpDate(a.date)),
-    []
+    () => [...articles].sort((a, b) => parseDate(b.date) - parseDate(a.date)),
+    [articles]
   );
   const sortedTalks = useMemo(
-    () => [...talks].sort((a, b) => parseJpDate(b.date) - parseJpDate(a.date)),
-    []
+    () => [...talks].sort((a, b) => parseDate(b.date) - parseDate(a.date)),
+    [talks]
   );
 
   return (
@@ -48,7 +63,7 @@ export function HomePage() {
                 <CopyItalic>the</CopyItalic> path.
               </HeroLine>
             </HeroCopy>
-            <HeroJP>実践が、道を拓く。</HeroJP>
+            <HeroJP>{t.home.hero}</HeroJP>
           </HeroTop>
 
           <HeroBottom>
@@ -56,7 +71,7 @@ export function HomePage() {
               <RoleRow>
                 Designer ・Product Manager · General Manager @M3, Inc. / 2020 —
               </RoleRow>
-              <Tagline>デザインで事業成長を加速させる。</Tagline>
+              <Tagline>{t.home.tagline}</Tagline>
             </HeroIdentityBlock>
           </HeroBottom>
         </HeroInner>
@@ -76,26 +91,24 @@ export function HomePage() {
           <Portrait src={PORTRAIT} alt="Yusuke Otsuki" />
           <AboutBody>
             <AboutLead>
-              プロダクト、グラフィック、フロントエンド、PdM——
+              {t.home.leadHtml[0]}
               <br />
-              <Em>手段を問わず動いて</Em>、
-              不確実を真っ先に行動で切り拓く。
+              <Em>{t.home.leadHtml[1]}</Em>
+              {t.home.leadHtml[2]}
             </AboutLead>
-            <AboutText>
-              千葉大学大学院デザイン科学修了。JVC ケンウッド・デザインでインダストリアルデザイン、UX/UI・インタラクション・ビジョン構想に従事したのち、株式会社ピックノートでスタートアップのゼロから開発に携わる。2020 年エムスリー入社。電子カルテ DigiKar、診療 DX デジスマ、海外医療メディアの立ち上げ等、新規プロダクトをリード。デザイナー採用 9 名——プロダクトと組織を同時に貢献しながら、事業成長をリード。
-            </AboutText>
+            <AboutText>{t.home.bio}</AboutText>
             <AboutGridBottom>
               <AboutMicro>
-                <MicroKey>主な領域</MicroKey>
-                <MicroValue>デザイン全般 / 0→1 / マネジメント</MicroValue>
+                <MicroKey>{t.home.microAreasKey}</MicroKey>
+                <MicroValue>{t.home.microAreasVal}</MicroValue>
               </AboutMicro>
               <AboutMicro>
-                <MicroKey>仕事のスタイル</MicroKey>
-                <MicroValue>率先してまずやってみる、ユーザー理解 · AI 推進</MicroValue>
+                <MicroKey>{t.home.microStyleKey}</MicroKey>
+                <MicroValue>{t.home.microStyleVal}</MicroValue>
               </AboutMicro>
               <AboutMicro>
-                <MicroKey>趣味</MicroKey>
-                <MicroValue>3D プリンター、植物栽培</MicroValue>
+                <MicroKey>{t.home.microHobbyKey}</MicroKey>
+                <MicroValue>{t.home.microHobbyVal}</MicroValue>
               </AboutMicro>
             </AboutGridBottom>
           </AboutBody>
@@ -145,7 +158,9 @@ export function HomePage() {
       {/* ─────────── CONTACT FOOT ─────────── */}
       <ContactFoot $dark={inverted}>
         <ContactCopy>
-          最後までご覧いただき<ContactItalic>ありがとうございました</ContactItalic>。
+          {t.home.closingPre}
+          {t.home.closingItalic && <ContactItalic>{t.home.closingItalic}</ContactItalic>}
+          {t.home.closingPost}
         </ContactCopy>
         <ContactLinks>
           <ContactBtn to="/resume" $dark={inverted}>Resume ↗</ContactBtn>

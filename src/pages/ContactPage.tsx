@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { contact } from '../data/resume';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 export function ContactPage() {
+  const { lang } = useLang();
+  const t = ui[lang];
   return (
     <div>
       <PageHeader>
         <Label>Contact</Label>
-        <Heading>連絡先</Heading>
+        <Heading>{t.contact.heading}</Heading>
       </PageHeader>
 
       <Body>
@@ -33,7 +37,7 @@ export function ContactPage() {
         )}
         <ContactItem>
           <ContactLabel>Location</ContactLabel>
-          <ContactText>{contact.location}</ContactText>
+          <ContactText>{t.contact.location}</ContactText>
         </ContactItem>
       </Body>
     </div>

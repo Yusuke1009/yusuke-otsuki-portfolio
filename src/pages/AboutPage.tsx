@@ -1,43 +1,42 @@
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 const PORTRAIT = '/assets/images/portrait_otsuki.webp';
 
 export function AboutPage() {
+  const { lang } = useLang();
+  const t = ui[lang];
   return (
     <div>
       <PageHeader>
         <Label>About</Label>
-        <Heading>大月 雄介について</Heading>
+        <Heading>{t.about.heading}</Heading>
       </PageHeader>
 
       <Intro>
-        <Portrait src={PORTRAIT} alt="大月 雄介" />
+        <Portrait src={PORTRAIT} alt={t.about.heading} />
         <IntroBody>
-          <Lead>
-            プロダクト、グラフィック、フロントエンド、PdM——
-            手段を問わず動いて、不確実を真っ先に行動で切り拓く。
-          </Lead>
-          <Bio>
-            千葉大学大学院デザイン科学修了。JVC ケンウッド・デザインでインダストリアルデザイン、UX/UI・インタラクション・ビジョン構想に従事したのち、株式会社ピックノートでスタートアップのゼロから開発に携わる。2020 年エムスリー入社。電子カルテ DigiKar、診療 DX デジスマ、海外医療メディアの立ち上げ等、新規プロダクトをリード。デザイナー採用 9 名——プロダクトと組織を同時に貢献しながら、事業成長をリード。
-          </Bio>
+          <Lead>{t.about.lead}</Lead>
+          <Bio>{t.about.bio}</Bio>
         </IntroBody>
       </Intro>
 
       <Body>
         <Section>
-          <SectionTitle>主な領域</SectionTitle>
-          <Text>デザイン全般 / 0→1 / マネジメント</Text>
+          <SectionTitle>{t.about.secAreas}</SectionTitle>
+          <Text>{t.about.valAreas}</Text>
         </Section>
 
         <Section>
-          <SectionTitle>仕事のスタイル</SectionTitle>
-          <Text>率先してまずやってみる、ユーザー理解 · AI 推進</Text>
+          <SectionTitle>{t.about.secStyle}</SectionTitle>
+          <Text>{t.about.valStyle}</Text>
         </Section>
 
         <Section>
-          <SectionTitle>趣味</SectionTitle>
-          <Text>3D プリンター、植物栽培</Text>
+          <SectionTitle>{t.about.secHobby}</SectionTitle>
+          <Text>{t.about.valHobby}</Text>
         </Section>
       </Body>
     </div>

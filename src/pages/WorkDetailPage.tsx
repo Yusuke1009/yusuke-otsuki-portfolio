@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { renderRich } from '../lib/renderRich';
 import { useParams, Link } from 'react-router-dom';
-import { projects } from '../data/projects';
+import { getProjects } from '../data/projects';
 import type { ProjectImage } from '../data/projects';
 import { Tag } from '../components/shared/Tag';
 import { MoonPhase } from '../components/moon/MoonPhase';
 import { Lightbox } from '../components/shared/Lightbox';
 import { pickPreviewSet, useHoverImagePreview } from '../components/shared/HoverImagePreview';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 interface ZoomState {
   images: ProjectImage[];
@@ -28,6 +30,9 @@ function toYouTubeEmbed(url: string): string | null {
 
 export function WorkDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const { lang } = useLang();
+  const t = ui[lang];
+  const projects = useMemo(() => getProjects(lang), [lang]);
   const project = projects.find((p) => p.id === id);
   const [zoom, setZoom] = useState<ZoomState | null>(null);
   const nextPreview = useHoverImagePreview();
@@ -35,8 +40,8 @@ export function WorkDetailPage() {
   if (!project) {
     return (
       <NotFound>
-        <p>プロジェクトが見つかりません。</p>
-        <Link to="/">← Home に戻る</Link>
+        <p>{t.common.notFound}</p>
+        <Link to="/">{t.common.backHome}</Link>
       </NotFound>
     );
   }
@@ -104,9 +109,9 @@ export function WorkDetailPage() {
           // pre-m3 のみ: 満月 → 新月 (waning / 過去から M3 へ向かう)
           // 他: 三日月 → 満月 (waxing / 事業成長)
           const isReverse = project.id === 'pre-m3';
-          const t = idx / Math.max(1, total - 1);
+          const phaseT = idx / Math.max(1, total - 1);
           const moonPhase =
-            total === 1 ? 1 : isReverse ? 1.0 - t * 0.78 : 0.22 + t * 0.78;
+            total === 1 ? 1 : isReverse ? 1.0 - phaseT * 0.78 : 0.22 + phaseT * 0.78;
           return (
             <PhaseBlock key={phase.number}>
               <PhaseDividerLine />
@@ -176,7 +181,7 @@ export function WorkDetailPage() {
                     <ImagePlaceholder>
                       <ImagePlaceholderInner>
                         <span>{phase.number}</span>
-                        <em>画像エリア（追加予定）</em>
+                        <em>{t.common.imgPlaceholder}</em>
                       </ImagePlaceholderInner>
                     </ImagePlaceholder>
                   ) : null}

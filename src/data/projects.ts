@@ -1,4 +1,5 @@
 import { loadProjects } from './loadProjects';
+import type { Lang } from '../i18n/LangContext';
 
 export interface ProjectImage {
   src: string;
@@ -56,4 +57,7 @@ export interface Project {
   featured: boolean;
 }
 
-export const projects: Project[] = loadProjects();
+const cache: Partial<Record<Lang, Project[]>> = {};
+export function getProjects(lang: Lang): Project[] {
+  return (cache[lang] ??= loadProjects(lang));
+}

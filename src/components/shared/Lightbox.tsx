@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import type { ProjectImage } from '../../data/projects';
 import { renderRich } from '../../lib/renderRich';
+import { useLang } from '../../i18n/LangContext';
+import { ui } from '../../i18n/ui';
 
 interface LightboxProps {
   images: ProjectImage[];
@@ -20,6 +22,8 @@ export function Lightbox({
   onPrev,
   onNext,
 }: LightboxProps) {
+  const { lang } = useLang();
+  const t = ui[lang];
   const isOpen = index !== null && index >= 0 && index < images.length;
   const hasMultiple = images.length > 1;
 
@@ -46,7 +50,7 @@ export function Lightbox({
 
   return (
     <Backdrop onClick={onClose} role="dialog" aria-modal="true">
-      <CloseBtn type="button" onClick={onClose} aria-label="閉じる">
+      <CloseBtn type="button" onClick={onClose} aria-label={t.common.close}>
         ×
       </CloseBtn>
 
@@ -58,7 +62,7 @@ export function Lightbox({
             e.stopPropagation();
             onPrev();
           }}
-          aria-label="前の画像"
+          aria-label={t.common.prev}
         >
           ‹
         </NavBtn>
@@ -77,7 +81,7 @@ export function Lightbox({
             e.stopPropagation();
             onNext();
           }}
-          aria-label="次の画像"
+          aria-label={t.common.next}
         >
           ›
         </NavBtn>

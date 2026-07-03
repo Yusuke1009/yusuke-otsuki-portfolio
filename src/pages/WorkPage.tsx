@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import { WorksWithSidebar } from '../components/work/WorksWithSidebar';
 import { theme } from '../styles/theme';
+import { useLang } from '../i18n/LangContext';
+import { ui } from '../i18n/ui';
 
 export function WorkPage() {
+  const { lang } = useLang();
+  const t = ui[lang];
   return (
     <Page>
       <Header>
         <Label>Work</Label>
-        <Heading>これまでの実践。</Heading>
-        <Sub>
-          M3 でのプロダクトと組織づくり、それ以前のメーカー / スタートアップ時代、
-          そして個人プロジェクトまで。
-        </Sub>
+        <Heading>{t.work.heading}</Heading>
+        <Sub>{t.work.sub}</Sub>
       </Header>
       <WorksWithSidebar sectionNumber="01" sectionLabel="All Works" />
     </Page>

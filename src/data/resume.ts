@@ -1,3 +1,5 @@
+import type { Lang } from '../i18n/LangContext';
+
 export interface Job {
   id: string;
   company: string;
@@ -25,7 +27,7 @@ export interface Publication {
   date: string;
 }
 
-export const jobs: Job[] = [
+const JOBS_JA: Job[] = [
   {
     id: 'm3-gm',
     company: 'エムスリー株式会社',
@@ -93,7 +95,7 @@ export const jobs: Job[] = [
   },
 ];
 
-export const skills: Skill[] = [
+const SKILLS_JA: Skill[] = [
   {
     category: 'デザイン',
     items: ['UI/UX Design', 'Figma', 'Design System', 'プロトタイピング', 'ユーザーリサーチ'],
@@ -124,7 +126,7 @@ export const skills: Skill[] = [
   },
 ];
 
-export const education: Education[] = [
+const EDU_JA: Education[] = [
   {
     school: '千葉大学大学院',
     faculty: 'デザイン科学専攻',
@@ -137,7 +139,7 @@ export const education: Education[] = [
   },
 ];
 
-export const publications: Publication[] = [
+const PUBS_JA: Publication[] = [
   {
     title: '成功するキックオフの視点',
     url: 'https://www.m3tech.blog/entry/2023/03/03/110000',
@@ -170,9 +172,55 @@ export const publications: Publication[] = [
   },
 ];
 
+const JOBS_EN: Job[] = [
+  { id: 'm3-gm', company: 'M3, Inc.', role: 'General Manager, Design Group / Product Designer', period: 'Apr 2026 – Present',
+    description: 'In parallel with managing the entire design organization, leading the launch of a new product, cloudIC Platform (a video platform for hospitalized patients), as both Product Owner and designer. Also concurrently driving AI agent development and Next DigiKar.',
+    achievements: ['Ran the design organization as General Manager of the Design Group', 'Launched cloudIC Platform as Product Owner and designer', 'Drove AI agent development and Next DigiKar in parallel'] },
+  { id: 'm3-leader', company: 'M3, Inc.', role: 'Team Leader, Design Group / Product Designer', period: 'Apr 2022 – Mar 2026',
+    description: 'Led business growth as the founding designer for multiple new products and businesses, serving as PdM and designer for the DigiKar team and as designer for the Digisma team. Also committed to and led designer recruiting.',
+    achievements: ['Led business growth as DigiKar PdM and design lead', 'Drove Digisma to product-market fit; hired and developed the next generation of designers', 'Hired 9 designers and designed their onboarding'] },
+  { id: 'm3-leader-early', company: 'M3, Inc.', role: 'Product Designer, Design Group', period: 'Oct 2020 – Mar 2022',
+    description: 'Responsible for product design of the EHR "M3 DigiKar." Worked across the core product, mobile app, and new business initiatives; later also took on the PdM role.',
+    achievements: ['UI/UX design for the core EHR product and mobile app', 'Launch and growth of Digisma'] },
+  { id: 'picknote', company: 'PickNote, Inc.', role: 'UI/UX Designer / Front-End Engineer', period: 'Jan 2020 – Jun 2020',
+    description: 'At a five-person startup, worked as both designer and engineer building services from zero. Developed an in-store analytics service using AI cameras and digital signage, and a digital signage service for shared offices.',
+    achievements: ['Took an AI camera × digital signage in-store analytics service from planning through implementation', 'Won a project from the shared office MOV (prototype → PDCA → delivery)', 'Learned embedded-device programming from scratch and shipped implementations'] },
+  { id: 'jvc-kenwood', company: 'JVCKENWOOD Design', role: 'UX/UI, Solution & Interaction Designer', period: 'Apr 2018 – Dec 2019',
+    description: 'Joined as a new graduate at a ~90-person design firm. Handled a wide range of design consulting, from designing and developing exhibition applications to vision and concept development for business units, the IP department, affiliates, and a major automaker.',
+    achievements: ['Concept development for AI navigation for a major automaker (proposed generative video generation)', 'Led R&D on TouchDesigner and drove its official in-house adoption (4 pro licenses)', 'Vision development and visualization for business units, the IP department, and R&D', 'Published independent research and hosted internal study sessions'] },
+];
+
+const SKILLS_EN: Skill[] = [
+  { category: 'Design', items: ['UI/UX Design', 'Figma', 'Design Systems', 'Prototyping', 'User Research'] },
+  { category: 'Product', items: ['PdM / PO', 'PRD Writing', 'Roadmapping', 'Agile Development'] },
+  { category: 'Management', items: ['Team Management', 'Designer Recruiting', '1-on-1s', 'Performance Evaluation Design'] },
+  { category: 'Technology', items: ['React', 'TypeScript', 'styled-components', 'TouchDesigner', 'HTML/CSS'] },
+  { category: 'AI', items: ['LLM Utilization', 'Claude / ChatGPT', 'Prompt Design', 'AI Agent Planning', 'AI-Assisted Implementation & Coding'] },
+  { category: 'Domain', items: ['Healthcare IT', 'EHR', 'UX for Older Adults', 'SaaS', 'B2B/B2C'] },
+  { category: 'Languages', items: ['English (business conversational; one year of study abroad)'] },
+];
+
+const EDU_EN: Education[] = [
+  { school: 'Chiba University Graduate School', faculty: "Design Science (Master's)", period: 'Apr 2015 – Mar 2018' },
+  { school: 'Chiba University', faculty: 'Faculty of Engineering, Dept. of Mechanical Engineering', period: 'Apr 2011 – Mar 2015' },
+];
+
+const PUBS_EN: Publication[] = [
+  { title: 'Perspectives for a Successful Kickoff', url: 'https://www.m3tech.blog/entry/2023/03/03/110000', medium: 'M3 Tech Blog', date: 'Mar 2023' },
+  { title: 'Blazing-Fast Figma Techniques You Can Use Tomorrow', url: 'https://www.m3tech.blog/entry/2023/02/15/130000', medium: 'M3 Tech Blog', date: 'Feb 2023' },
+  { title: 'Driving Business Impact Through Design Renewal at Digisma', url: 'https://cocoda.design/yusuke109/p/p8393c890e065', medium: 'Cocoda', date: 'Jul 2024' },
+  { title: 'Dialogue, Verbal and Nonverbal, Is Where Design Adds Its Value', url: 'https://designing.jp/m3-ohtsuki', medium: 'designing.jp', date: 'Sep 2023' },
+  { title: 'The Case for Observation in Product Development (Designship 2023)', url: 'https://design-ship.jp/2023/contents/session', medium: 'Designship 2023', date: 'Oct 2023' },
+];
+
+export const resume: Record<Lang, { jobs: Job[]; skills: Skill[]; education: Education[]; publications: Publication[] }> = {
+  ja: { jobs: JOBS_JA, skills: SKILLS_JA, education: EDU_JA, publications: PUBS_JA },
+  en: { jobs: JOBS_EN, skills: SKILLS_EN, education: EDU_EN, publications: PUBS_EN },
+};
+
+// NOTE: location removed — use ui[lang].contact.location instead
 export const contact = {
   email: 'moonoom1009@gmail.com',
   linkedin: '',
   twitter: '',
-  location: '東京都',
 };

@@ -1,4 +1,5 @@
 import type { Project, ProjectImage, ProjectLink, ProjectPhase, RoleFilter } from './projects';
+import type { Lang } from '../i18n/LangContext';
 
 const modules = import.meta.glob('../content/works/*.md', {
   eager: true,
@@ -201,12 +202,19 @@ function idFromPath(path: string): string {
   return m ? m[1] : '';
 }
 
-export function loadProjects(): Project[] {
-  const byId: Record<string, Project> = {};
+export function loadProjects(lang: Lang): Project[] {
+  const ja: Record<string, Project> = {};
+  const en: Record<string, Project> = {};
   for (const [path, md] of Object.entries(modules)) {
-    const id = idFromPath(path);
-    if (!id) continue;
-    byId[id] = parseProject(md, id);
+    const base = idFromPath(path);
+    if (!base) continue;
+    if (base.endsWith('.en')) {
+      const id = base.slice(0, -3);
+      en[id] = parseProject(md, id);
+    } else {
+      ja[base] = parseProject(md, base);
+    }
   }
-  return PROJECT_ORDER.map((id) => byId[id]).filter(Boolean);
+  const src = lang === 'en' ? en : ja;
+  return PROJECT_ORDER.map((id) => src[id] ?? ja[id]).filter(Boolean);
 }
