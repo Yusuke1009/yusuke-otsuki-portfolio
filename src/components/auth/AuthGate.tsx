@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../styles/theme';
+import { useLang } from '../../i18n/LangContext';
+import { ui } from '../../i18n/ui';
 
 const STORAGE_KEY = 'portfolio:auth';
 
@@ -13,6 +15,8 @@ interface AuthGateProps {
 }
 
 export function AuthGate({ children }: AuthGateProps) {
+  const { lang } = useLang();
+  const t = ui[lang].auth;
   // 環境変数が未設定なら開発モード扱いで素通し
   const authDisabled = !AUTH_ID || !AUTH_PASSWORD;
   const [authed, setAuthed] = useState<boolean>(
@@ -37,7 +41,7 @@ export function AuthGate({ children }: AuthGateProps) {
       setAuthed(true);
       setError(null);
     } else {
-      setError('ID またはパスワードが違います');
+      setError(t.error);
     }
   }
 
@@ -47,7 +51,7 @@ export function AuthGate({ children }: AuthGateProps) {
     <Backdrop>
       <Card onSubmit={onSubmit}>
         <Title>{'{ YUSUKE_OTSUKI Portfolio }'}</Title>
-        <Lead>このサイトはご招待者限定です。ID とパスワードを入力してください。</Lead>
+        <Lead>{t.lead}</Lead>
 
         <Label htmlFor="auth-id">ID</Label>
         <Input
@@ -70,7 +74,7 @@ export function AuthGate({ children }: AuthGateProps) {
 
         {error && <Error>{error}</Error>}
 
-        <Submit type="submit">Enter ↗</Submit>
+        <Submit type="submit">{t.submit}</Submit>
       </Card>
     </Backdrop>
   );

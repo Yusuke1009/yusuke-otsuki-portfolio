@@ -1,6 +1,7 @@
 import type { Lang } from './LangContext';
 
 interface UIStrings {
+  auth: { lead: string; error: string; submit: string };
   nav: { work: string; resume: string; menuOpen: string; menuClose: string; toLang: string };
   common: {
     close: string; prev: string; next: string; emptyProjects: string;
@@ -42,6 +43,7 @@ interface UIStrings {
 
 export const ui: Record<Lang, UIStrings> = {
   ja: {
+    auth: { lead: 'このサイトはご招待者限定です。ID とパスワードを入力してください。', error: 'ID またはパスワードが違います', submit: 'Enter ↗' },
     nav: { work: 'Work', resume: 'Resume', menuOpen: 'メニューを開く', menuClose: 'メニューを閉じる', toLang: 'EN' },
     common: {
       close: '閉じる', prev: '前の画像', next: '次の画像',
@@ -89,6 +91,7 @@ export const ui: Record<Lang, UIStrings> = {
     footer: { name: '大月 雄介' },
   },
   en: {
+    auth: { lead: 'This site is invite-only. Please enter your ID and password.', error: 'Incorrect ID or password.', submit: 'Enter ↗' },
     nav: { work: 'Work', resume: 'Resume', menuOpen: 'Open menu', menuClose: 'Close menu', toLang: 'JP' },
     common: {
       close: 'Close', prev: 'Previous image', next: 'Next image',
