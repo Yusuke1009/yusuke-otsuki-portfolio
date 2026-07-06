@@ -174,20 +174,20 @@ const PUBS_JA: Publication[] = [
 
 const JOBS_EN: Job[] = [
   { id: 'm3-gm', company: 'M3, Inc.', role: 'General Manager, Design Group / Product Designer', period: 'Apr 2026 – Present',
-    description: 'In parallel with managing the entire design organization, leading the launch of a new product, cloudIC Platform (a video platform for hospitalized patients), as both Product Owner and designer. Also concurrently driving AI agent development and Next DigiKar.',
-    achievements: ['Ran the design organization as General Manager of the Design Group', 'Launched cloudIC Platform as Product Owner and designer', 'Drove AI agent development and Next DigiKar in parallel'] },
+    description: 'While managing the entire design organization, I lead the launch of cloudIC Platform (a video platform for hospitalized patients) as both Product Owner and designer, and concurrently drive AI agent development and Next DigiKar.',
+    achievements: ['Run the Design Group as General Manager', 'Lead the launch of cloudIC Platform as Product Owner and designer', 'Drive AI agent development and Next DigiKar in parallel'] },
   { id: 'm3-leader', company: 'M3, Inc.', role: 'Team Leader, Design Group / Product Designer', period: 'Apr 2022 – Mar 2026',
-    description: 'Led business growth as the founding designer for multiple new products and businesses, serving as PdM and designer for the DigiKar team and as designer for the Digisma team. Also committed to and led designer recruiting.',
-    achievements: ['Led business growth as DigiKar PdM and design lead', 'Drove Digisma to product-market fit; hired and developed the next generation of designers', 'Hired 9 designers and designed their onboarding'] },
+    description: 'Led business growth as the founding designer for multiple new products and businesses, serving as product manager and designer for the DigiKar team and as designer for the Digisma team. Also owned designer recruiting end to end.',
+    achievements: ['Led business growth as DigiKar PM and design lead', 'Drove Digisma to product-market fit', 'Hired 9 designers and built their onboarding program'] },
   { id: 'm3-leader-early', company: 'M3, Inc.', role: 'Product Designer, Design Group', period: 'Oct 2020 – Mar 2022',
-    description: 'Responsible for product design of the EHR "M3 DigiKar." Worked across the core product, mobile app, and new business initiatives; later also took on the PdM role.',
-    achievements: ['UI/UX design for the core EHR product and mobile app', 'Launch and growth of Digisma'] },
+    description: 'Responsible for product design of the EHR "M3 DigiKar." Worked across the core product, mobile app, and new business initiatives; later also took on the product manager role.',
+    achievements: ['Designed UI/UX for the core EHR product and mobile app', 'Launched and grew Digisma'] },
   { id: 'picknote', company: 'PickNote, Inc.', role: 'UI/UX Designer / Front-End Engineer', period: 'Jan 2020 – Jun 2020',
-    description: 'At a five-person startup, worked as both designer and engineer building services from zero. Developed an in-store analytics service using AI cameras and digital signage, and a digital signage service for shared offices.',
-    achievements: ['Took an AI camera × digital signage in-store analytics service from planning through implementation', 'Won a project from the shared office MOV (prototype → PDCA → delivery)', 'Learned embedded-device programming from scratch and shipped implementations'] },
+    description: 'At a five-person startup, worked as both designer and engineer building services from scratch. Developed an in-store analytics service using AI cameras and digital signage, and a digital signage service for shared offices.',
+    achievements: ['Took an in-store analytics service combining AI cameras and digital signage from planning through implementation', 'Won a project from the shared office MOV (prototype → iterate → delivery)', 'Learned embedded-device programming from scratch and shipped it to production'] },
   { id: 'jvc-kenwood', company: 'JVCKENWOOD Design', role: 'UX/UI, Solution & Interaction Designer', period: 'Apr 2018 – Dec 2019',
-    description: 'Joined as a new graduate at a ~90-person design firm. Handled a wide range of design consulting, from designing and developing exhibition applications to vision and concept development for business units, the IP department, affiliates, and a major automaker.',
-    achievements: ['Concept development for AI navigation for a major automaker (proposed generative video generation)', 'Led R&D on TouchDesigner and drove its official in-house adoption (4 pro licenses)', 'Vision development and visualization for business units, the IP department, and R&D', 'Published independent research and hosted internal study sessions'] },
+    description: 'Joined the ~90-person design firm as a new grad. Handled a wide range of design consulting, from designing and developing exhibition applications to vision and concept development for business units, the IP department, affiliates, and a major automaker.',
+    achievements: ['Concept development for AI navigation for a major automaker (proposed AI-generated video)', 'Led R&D on TouchDesigner and drove its official in-house adoption, securing 4 pro licenses', 'Drove vision development and visualization for business units, the IP department, and R&D', 'Published independent research and ran internal workshops'] },
 ];
 
 const SKILLS_EN: Skill[] = [
